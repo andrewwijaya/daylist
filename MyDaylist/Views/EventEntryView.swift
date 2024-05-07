@@ -13,14 +13,10 @@ struct EventEntryView: View {
     
     var body: some View {
         ScrollView {
-            Text(eventEntry.text)
+            Text(title)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-        #if os(iOS)
-        .navigationTitle(title)
-        #elseif os(macOS)
-        .navigationSubtitle(title)
-        #endif
+        .navigationTitle(eventEntry.text)
     }
 }

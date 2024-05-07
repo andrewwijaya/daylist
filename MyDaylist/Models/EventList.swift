@@ -1,19 +1,19 @@
 import SwiftUI
 
-class Event: ObservableObject {
+class EventList: ObservableObject {
     @Published var entries: [EventEntry] = [
         EventEntry(
             createdDate: today(minus: 2),
-            text: "Had a wonderful time at the county fair."),
+            text: "Taylor Swift concert"),
         EventEntry(
             createdDate: today(minus: 5),
-            text: "Spent the afternoon at the farmer's market. The food was delicious and I'm excited to eat the tomatoes that I bought. Wish I had gotten the name of the band playing music. They were great."),
+            text: "Birthday"),
     ]
     
     func addSampleEntry() {
         let entry = EventEntry(
             createdDate: Date(),
-            text: "This is a new sample event entry.")
+            text: "This is a new event entry.")
         entries.append(entry)
     }
 

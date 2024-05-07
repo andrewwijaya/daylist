@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var event = Event()
+    @StateObject private var eventList = EventList()
     
     var body: some View {
         NavigationStack {
-            List(event.entries) { entry in
+            List(eventList.entries) { entry in
                 NavigationLink(value: entry) {
                     EventEntryListItem(eventEntry: entry)
                 }
@@ -17,7 +17,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                        event.addSampleEntry()
+                        eventList.addSampleEntry()
                     } label: {
                         Image(systemName: "plus")
                     }

@@ -5,9 +5,9 @@ struct EventEntryListItem: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            DateView(date: eventEntry.createdDate)
             Text("\(eventEntry.text)")
                 .lineLimit(2)
+            DateView(date: eventEntry.createdDate)
         }
     }
 }
