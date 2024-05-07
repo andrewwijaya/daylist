@@ -11,6 +11,7 @@ struct EventEntryListItem: View {
             Text("\(eventEntry.text)")
                 .lineLimit(2)
                 .padding(.trailing, 50.0)
+            Spacer()
             DateView(date: eventEntry.createdDate)
         }
     }
