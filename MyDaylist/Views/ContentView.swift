@@ -5,22 +5,28 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            List(eventList.entries) { entry in
-                NavigationLink(value: entry) {
-                    EventEntryListItem(eventEntry: entry)
-                }
-            }
-            .navigationDestination(for: EventEntry.self) { entry in
-                EventEntryView(eventEntry: entry)
-            }
-            .navigationTitle("Daylist")
-            .toolbar {
-                ToolbarItem {
-                    Button {
-                        eventList.addSampleEntry()
-                    } label: {
-                        Image(systemName: "plus")
+            ZStack {
+                Color(.systemMint).ignoresSafeArea(.all)
+                VStack {
+                    List(eventList.entries) { entry in
+                        NavigationLink(value: entry) {
+                            EventEntryListItem(eventEntry: entry)
+                        }
                     }
+                    .navigationDestination(for: EventEntry.self) { entry in
+                        EventEntryView(eventEntry: entry)
+                    }
+                    .navigationTitle("Daylist")
+                    .toolbar {
+                        ToolbarItem {
+                            Button {
+                                eventList.addSampleEntry()
+                            } label: {
+                                Image(systemName: "plus")
+                            }
+                        }
+                    }
+                    .scrollContentBackground(.hidden)
                 }
             }
         }

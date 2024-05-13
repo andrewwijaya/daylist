@@ -5,17 +5,17 @@ struct DateView: View {
     
     private var year: String {
         date.formatted(Date.FormatStyle()
-            .year()).localizedUppercase
+            .year())
     }
     
     private var weekday: String {
         date.formatted(Date.FormatStyle()
-            .weekday(.abbreviated)).localizedUppercase
+            .weekday(.abbreviated))
     }
     
     private var month: String {
         date.formatted(Date.FormatStyle()
-            .month(.abbreviated)).localizedUppercase
+            .month(.abbreviated))
     }
     
     private var day: String {
@@ -25,15 +25,9 @@ struct DateView: View {
     
     var body: some View {
         HStack {
-//            Text("\(weekday)")
-//                .font(.headline)
-            Text("\(day)")
-                .font(.headline)
-            Text("\(month)")
-                .font(.headline)
-            Text("\(year)")
-                .font(.headline)
+            Text("\(day) \(month) \(year)")
         }
+        .font(.subheadline)
     }
 }
 

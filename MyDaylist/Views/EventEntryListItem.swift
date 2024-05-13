@@ -8,7 +8,8 @@ struct EventEntryListItem: View {
             Image(systemName: "star")
             VStack(alignment: .leading) {
                 Text("\(eventEntry.text)")
-                    .lineLimit(2)
+                    .lineLimit(3)
+                    .font(.title3)
                     .padding(.trailing, 50.0)
                 DateView(date: eventEntry.eventDate)
             }
@@ -17,7 +18,9 @@ struct EventEntryListItem: View {
             
             VStack {
                 Text("\(daysBetween(Date(), eventEntry.eventDate))")
+                    .font(.headline)
                 Text("days to go")
+                    .font(.subheadline)
             }
         }
     }
