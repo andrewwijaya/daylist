@@ -5,18 +5,32 @@ struct EventEntryListItem: View {
     
     var body: some View {
         HStack() {
-            VStack(){
-                Image(systemName: "star")
+            Image(systemName: "star")
+            VStack(alignment: .leading) {
+                Text("\(eventEntry.text)")
+                    .lineLimit(2)
+                    .padding(.trailing, 50.0)
+                DateView(date: eventEntry.eventDate)
             }
-            Text("\(eventEntry.text)")
-                .lineLimit(2)
-                .padding(.trailing, 50.0)
+            
             Spacer()
-            DateView(date: eventEntry.createdDate)
+            
+            VStack {
+                Text("\(daysBetween(Date(), eventEntry.eventDate))")
+                Text("days to go")
+            }
         }
+    }
+    
+    func daysBetween(_ startDate: Date, _ endDate: Date) -> Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: startDate, to: endDate)
+        
+        guard let days = components.day else { return 0 }
+        return abs(days)
     }
 }
 
 #Preview {
-    EventEntryListItem(eventEntry: EventEntry(text: "Some New Event"))
+    EventEntryListItem(eventEntry: EventEntry(eventDate: Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15)) ?? Date(), text: "Andrew's Birthday"))
 }

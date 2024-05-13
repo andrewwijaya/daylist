@@ -4,7 +4,7 @@ struct EventEntryView: View {
     let eventEntry: EventEntry
     
     private var title: String {
-        eventEntry.createdDate.formatted(Date.FormatStyle()
+        eventEntry.eventDate.formatted(Date.FormatStyle()
             .weekday(.abbreviated)
             .month(.abbreviated)
             .day()

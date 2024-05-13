@@ -2,11 +2,12 @@ import SwiftUI
 
 struct EventEntry: Identifiable, Hashable {
     let id = UUID()
-    let createdDate: Date
+    let eventDate: Date
     var text = ""
     
-    init(createdDate: Date = Date(), text: String = "") {
-        self.createdDate = createdDate
+    // If no event date supplied, then use today as default.
+    init(eventDate: Date = Date(), text: String = "") {
+        self.eventDate = eventDate
         self.text = text
     }
 }
