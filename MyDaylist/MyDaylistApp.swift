@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct MyDaylistApp: App {
@@ -13,5 +14,6 @@ struct MyDaylistApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [Event.self])
     }
 }

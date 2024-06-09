@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct EventEntryView: View {
-    let eventEntry: EventEntry
+    let eventEntry: Event
     
     private var title: String {
         eventEntry.eventDate.formatted(Date.FormatStyle()
@@ -17,6 +17,6 @@ struct EventEntryView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-        .navigationTitle(eventEntry.text)
+        .navigationTitle(eventEntry.eventTitle)
     }
 }

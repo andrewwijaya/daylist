@@ -1,13 +1,15 @@
 import SwiftUI
+import SwiftData
 
-struct EventEntry: Identifiable, Hashable {
+@Model
+class Event: Identifiable, Hashable {
     let id = UUID()
-    let eventDate: Date
-    var text = ""
+    var eventDate: Date
+    var eventTitle = ""
     
     // If no event date supplied, then use today as default.
     init(eventDate: Date = Date(), text: String = "") {
         self.eventDate = eventDate
-        self.text = text
+        self.eventTitle = text
     }
 }

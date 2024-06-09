@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct EventEntryListItem: View {
-    let eventEntry: EventEntry
+    let eventEntry: Event
     
     var body: some View {
         HStack() {
             Image(systemName: "star")
             VStack(alignment: .leading) {
-                Text("\(eventEntry.text)")
-                    .lineLimit(3)
+                Text("\(eventEntry.eventTitle)")
+                    .lineLimit(1)
                     .font(.title3)
                     .padding(.trailing, 50.0)
                 DateView(date: eventEntry.eventDate)
@@ -23,6 +23,7 @@ struct EventEntryListItem: View {
                     .font(.subheadline)
             }
         }
+        .frame(width: 330)
     }
     
     func daysBetween(_ startDate: Date, _ endDate: Date) -> Int {
@@ -35,5 +36,5 @@ struct EventEntryListItem: View {
 }
 
 #Preview {
-    EventEntryListItem(eventEntry: EventEntry(eventDate: Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15)) ?? Date(), text: "Andrew's Birthday"))
+    EventEntryListItem(eventEntry: Event(eventDate: Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15)) ?? Date(), text: "Andrew's Birthday"))
 }
