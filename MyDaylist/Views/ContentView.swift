@@ -55,7 +55,16 @@ struct ContentView: View {
 }
 
 #Preview{
-    ContentView()
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Event.self, configurations: config)
+
+    for i in 1..<10 {
+        let event = Event(eventDate: Date(), eventTitle: "Example Event \(i)")
+        container.mainContext.insert(event)
+    }
+
+    return ContentView()
+        .modelContainer(container)
 }
 
 struct AddEventSheet: View {
@@ -80,7 +89,7 @@ struct AddEventSheet: View {
                                  
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button("Save") {
-                        let event = Event(eventDate: eventDate, text: eventTitle)
+                        let event = Event(eventDate: eventDate, eventTitle: eventTitle)
                         context.insert(event)
                         dismiss()
                     }

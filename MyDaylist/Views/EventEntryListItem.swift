@@ -36,5 +36,5 @@ struct EventEntryListItem: View {
 }
 
 #Preview {
-    EventEntryListItem(eventEntry: Event(eventDate: Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15)) ?? Date(), text: "Andrew's Birthday"))
+    EventEntryListItem(eventEntry: Event(eventDate: Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15)) ?? Date(), eventTitle: "Andrew's Birthday"))
 }

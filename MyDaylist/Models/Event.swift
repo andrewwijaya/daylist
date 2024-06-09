@@ -8,8 +8,8 @@ class Event: Identifiable, Hashable {
     var eventTitle = ""
     
     // If no event date supplied, then use today as default.
-    init(eventDate: Date = Date(), text: String = "") {
+    init(eventDate: Date = Date(), eventTitle: String = "") {
         self.eventDate = eventDate
-        self.eventTitle = text
+        self.eventTitle = eventTitle
     }
 }
