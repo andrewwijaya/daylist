@@ -7,7 +7,7 @@ struct ContentView: View {
     @StateObject private var eventList = EventList()
     @State private var isShowingAddEventSheet = false
     @Query(sort: \Event.eventDate) var events: [Event] = []
-
+    @State private var eventToEdit: Event?
     
     init() {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
@@ -18,12 +18,22 @@ struct ContentView: View {
             ZStack {
                 Color(.brandPrimary).ignoresSafeArea(.all)
                 VStack {
-                    List(events) { entry in
-                        NavigationLink(value: entry) {
-                            EventEntryListItem(eventEntry: entry)
+                    List() {
+                        ForEach(events) { event in
+                            NavigationLink(value: event) {
+                                EventEntryListItem(eventEntry: event)
+                                    .onTapGesture {
+                                        eventToEdit = event
+                                    }
+                            }
+                            .listStyle(.plain)
+                            .listRowBackground(Color(.brandSecondary))
                         }
-                        .listStyle(.plain)
-                        .listRowBackground(Color(.brandSecondary))
+                        .onDelete(perform: { indexSet in
+                            for index in indexSet {
+                                context.delete(events[index])
+                            }
+                        })
                     }
                     .navigationDestination(for: Event.self) { entry in
                         EventEntryView(eventEntry: entry)
@@ -43,7 +53,10 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheet() }
-        
+        .sheet(item: $eventToEdit) { event in
+            UpdateEventSheet(event: event)
+        }
+        // TODO: what's going on with this toolbar? It is not visible.
         .toolbar {
             if !events.isEmpty {
                 Button("Add Event", systemImage: "plus") {
