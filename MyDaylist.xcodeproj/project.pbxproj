@@ -18,6 +18,7 @@
 		3A300E312BEA94A000F3C013 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A300E302BEA94A000F3C013 /* SettingsView.swift */; };
 		3A300E332BEA94BD00F3C013 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A300E322BEA94BD00F3C013 /* SettingsDetailView.swift */; };
 		3A300E352BEA94D500F3C013 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A300E342BEA94D500F3C013 /* DateView.swift */; };
+		3A4598922C1790A000EECEA3 /* DaylistTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4598912C1790A000EECEA3 /* DaylistTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		3A300E302BEA94A000F3C013 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3A300E322BEA94BD00F3C013 /* SettingsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
 		3A300E342BEA94D500F3C013 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		3A4598912C1790A000EECEA3 /* DaylistTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylistTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				3A300E162BEA921A00F3C013 /* MyDaylistApp.swift */,
 				3A300E1A2BEA921B00F3C013 /* Assets.xcassets */,
 				3A300E1C2BEA921B00F3C013 /* Preview Content */,
+				3A4598912C1790A000EECEA3 /* DaylistTabView.swift */,
 			);
 			path = MyDaylist;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A300E312BEA94A000F3C013 /* SettingsView.swift in Sources */,
+				3A4598922C1790A000EECEA3 /* DaylistTabView.swift in Sources */,
 				3A300E192BEA921A00F3C013 /* ContentView.swift in Sources */,
 				3A300E332BEA94BD00F3C013 /* SettingsDetailView.swift in Sources */,
 				3A300E292BEA93BE00F3C013 /* EventList.swift in Sources */,

@@ -12,7 +12,7 @@ import SwiftData
 struct MyDaylistApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DaylistTabView()
         }
         .modelContainer(for: [Event.self])
     }

@@ -27,12 +27,11 @@ struct EventEntryListItem: View {
         .frame(width: 330)
     }
     
+    // TODO there a bug here, it is off by 1 day.
     func daysBetween(_ startDate: Date, _ endDate: Date) -> Int {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day], from: startDate, to: endDate)
-        
-        guard let days = components.day else { return 0 }
-        return abs(days)
+        return components.day ?? 0
     }
 }
 

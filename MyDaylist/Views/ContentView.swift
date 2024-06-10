@@ -3,14 +3,14 @@ import SwiftData
 
 struct ContentView: View {
     
+    var events: [Event]
     @Environment(\.modelContext) var context
-    @StateObject private var eventList = EventList()
     @State private var isShowingAddEventSheet = false
-    @Query(sort: \Event.eventDate) var events: [Event] = []
     @State private var eventToEdit: Event?
     
-    init() {
+    init(events: [Event]) {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
+        self.events = events
     }
     
     var body: some View {
@@ -70,13 +70,15 @@ struct ContentView: View {
 #Preview{
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Event.self, configurations: config)
-
+    var events: [Event] = []
+    
     for i in 1..<10 {
         let event = Event(eventDate: Date(), eventTitle: "Example Event \(i)")
         container.mainContext.insert(event)
+        events.append(event)
     }
 
-    return ContentView()
+    return ContentView(events: events)
         .modelContainer(container)
 }
 
