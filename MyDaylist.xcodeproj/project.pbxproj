@@ -18,7 +18,6 @@
 		3A300E312BEA94A000F3C013 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A300E302BEA94A000F3C013 /* SettingsView.swift */; };
 		3A300E332BEA94BD00F3C013 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A300E322BEA94BD00F3C013 /* SettingsDetailView.swift */; };
 		3A300E352BEA94D500F3C013 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A300E342BEA94D500F3C013 /* DateView.swift */; };
-		3A300E372BEA94E800F3C013 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A300E362BEA94E800F3C013 /* MyScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +33,6 @@
 		3A300E302BEA94A000F3C013 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3A300E322BEA94BD00F3C013 /* SettingsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
 		3A300E342BEA94D500F3C013 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
-		3A300E362BEA94E800F3C013 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +86,6 @@
 		3A300E242BEA930E00F3C013 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				3A300E362BEA94E800F3C013 /* MyScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -187,7 +184,6 @@
 			files = (
 				3A300E312BEA94A000F3C013 /* SettingsView.swift in Sources */,
 				3A300E192BEA921A00F3C013 /* ContentView.swift in Sources */,
-				3A300E372BEA94E800F3C013 /* MyScene.swift in Sources */,
 				3A300E332BEA94BD00F3C013 /* SettingsDetailView.swift in Sources */,
 				3A300E292BEA93BE00F3C013 /* EventList.swift in Sources */,
 				3A300E2F2BEA947A00F3C013 /* EventEntryListItem.swift in Sources */,

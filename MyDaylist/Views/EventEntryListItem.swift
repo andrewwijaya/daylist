@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct EventEntryListItem: View {
     let eventEntry: Event
@@ -36,5 +37,13 @@ struct EventEntryListItem: View {
 }
 
 #Preview {
-    EventEntryListItem(eventEntry: Event(eventDate: Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15)) ?? Date(), eventTitle: "Andrew's Birthday"))
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Event.self, configurations: config)
+
+    for i in 1..<10 {
+        let event = Event(eventDate: Date(), eventTitle: "Example Event \(i)")
+        container.mainContext.insert(event)
+    }
+    return EventEntryListItem(eventEntry: Event(eventDate: Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15)) ?? Date(), eventTitle: "Andrew's Birthday"))
+        .modelContainer(container)
 }
