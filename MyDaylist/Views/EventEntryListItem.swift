@@ -18,7 +18,7 @@ struct EventEntryListItem: View {
             Spacer()
             
             VStack {
-                Text("\(daysBetween(Date(), eventEntry.eventDate))")
+                Text("\(daysBetween(eventEntry.eventDate))")
                     .font(.headline)
                 Text("days to go")
                     .font(.subheadline)
@@ -28,9 +28,10 @@ struct EventEntryListItem: View {
     }
     
     // TODO there a bug here, it is off by 1 day.
-    func daysBetween(_ startDate: Date, _ endDate: Date) -> Int {
+    func daysBetween(_ endDate: Date) -> Int {
+        let today = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.day], from: startDate, to: endDate)
+        let components = calendar.dateComponents([.day], from: today, to: endDate)
         return components.day ?? 0
     }
 }
@@ -40,7 +41,7 @@ struct EventEntryListItem: View {
     let container = try! ModelContainer(for: Event.self, configurations: config)
 
     for i in 1..<10 {
-        let event = Event(eventDate: Date(), eventTitle: "Example Event \(i)")
+        let event = Event(eventDate: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, eventTitle: "Example Event \(i)")
         container.mainContext.insert(event)
     }
     return EventEntryListItem(eventEntry: Event(eventDate: Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15)) ?? Date(), eventTitle: "Andrew's Birthday"))
