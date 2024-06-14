@@ -12,7 +12,6 @@ struct DaylistTabView: View {
     
     @Environment(\.modelContext) var context
     @Query(sort: \Event.eventDate) var events: [Event] = []
-//    let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
         
     var body: some View {
         
