@@ -96,7 +96,7 @@ struct AddEventSheet: View {
         NavigationStack {
             Form {
                 TextField("Event Name", text: $eventTitle)
-                DatePicker("Event Date", selection: $eventDate, displayedComponents: .date)
+                DatePicker("Event Date", selection: $eventDate)
             }
             .navigationTitle("New Event")
             .navigationBarTitleDisplayMode(.large)
@@ -125,7 +125,7 @@ struct UpdateEventSheet: View {
         NavigationStack {
             Form {
                 TextField("Event Name", text: $event.eventTitle)
-                DatePicker("Date", selection: $event.eventDate, displayedComponents: .date)
+                DatePicker("Date", selection: $event.eventDate)
             }
             .navigationTitle("Update Event")
             .navigationBarTitleDisplayMode(.large)
