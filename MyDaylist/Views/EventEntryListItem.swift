@@ -3,6 +3,7 @@ import SwiftData
 
 struct EventEntryListItem: View {
     let eventEntry: Event
+    var toGoText: String
     
     var body: some View {
         HStack() {
@@ -20,7 +21,7 @@ struct EventEntryListItem: View {
             VStack {
                 Text("\(daysBetween(eventEntry.eventDate))")
                     .font(.headline)
-                Text("days to go")
+                Text(toGoText)
                     .font(.subheadline)
             }
         }
@@ -32,7 +33,7 @@ struct EventEntryListItem: View {
         let today = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day], from: today, to: endDate)
-        return components.day ?? 0
+        return abs(components.day ?? 0)
     }
 }
 
@@ -44,6 +45,7 @@ struct EventEntryListItem: View {
         let event = Event(eventDate: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, eventTitle: "Example Event \(i)")
         container.mainContext.insert(event)
     }
-    return EventEntryListItem(eventEntry: Event(eventDate: Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15)) ?? Date(), eventTitle: "Andrew's Birthday"))
+    var previewEvent = Event(eventDate: Calendar.current.date(from: DateComponents(year: 2024, month: 6, day: 15)) ?? Date(), eventTitle: "Andrew's Birthday")
+    return EventEntryListItem(eventEntry: previewEvent, toGoText: "days ago")
         .modelContainer(container)
 }

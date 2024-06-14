@@ -4,13 +4,16 @@ import SwiftData
 struct ContentView: View {
     
     var events: [Event]
+    var isFutureList: Bool
+    
     @Environment(\.modelContext) var context
     @State private var isShowingAddEventSheet = false
     @State private var eventToEdit: Event?
     
-    init(events: [Event]) {
+    init(events: [Event], isFutureList: Bool) {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
         self.events = events
+        self.isFutureList = isFutureList
     }
     
     var body: some View {
@@ -21,7 +24,7 @@ struct ContentView: View {
                     List() {
                         ForEach(events) { event in
                             NavigationLink(value: event) {
-                                EventEntryListItem(eventEntry: event)
+                                EventEntryListItem(eventEntry: event, toGoText: isFutureList ? "days to go" : "days ago")
                                     .onTapGesture {
                                         eventToEdit = event
                                     }
@@ -78,7 +81,7 @@ struct ContentView: View {
         events.append(event)
     }
 
-    return ContentView(events: events)
+    return ContentView(events: events, isFutureList: true)
         .modelContainer(container)
 }
 

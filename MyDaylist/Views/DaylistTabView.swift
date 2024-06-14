@@ -17,10 +17,11 @@ struct DaylistTabView: View {
         
         TabView {
             var futureEvents = events.filter { $0.eventDate >= Date() }
-            ContentView(events: futureEvents)
+            ContentView(events: futureEvents, isFutureList: true)
                 .tabItem { Label("Events", systemImage: "calendar") }
             var pastEvents = events.filter { $0.eventDate < Date() }
-            ContentView(events: pastEvents)
+            // Reverse the pastEvents variable because it is sorted based on the date not on days remaining.
+            ContentView(events: pastEvents.reversed(), isFutureList: false)
                 .tabItem { Label("Past Events", systemImage: "calendar.badge.checkmark") }
         }
     }
