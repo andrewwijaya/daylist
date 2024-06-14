@@ -10,6 +10,9 @@ Daylist is an event countdown ios application.
 Functionality to do list:
 
 - [ ] Events need to have a time associated to it, not just a date
+- [ ] Ability to change the icon
+- [ ] Ability to change the color of the icon
+- [ ] Ability to change the color of the cell
 - [ ] Convert wording of past events to i.e. "2 days ago"
 - [ ] Push notification support, and ability to customise when the alert appears
 - [ ] Countdown time should tick down in real time
