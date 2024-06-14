@@ -35,6 +35,7 @@
 		3A300E322BEA94BD00F3C013 /* SettingsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
 		3A300E342BEA94D500F3C013 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		3A4598912C1790A000EECEA3 /* DaylistTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylistTabView.swift; sourceTree = "<group>"; };
+		3A6F1C762C1CAEDE0018A33C /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTES.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +70,10 @@
 			children = (
 				3A300E272BEA933400F3C013 /* Models */,
 				3A300E252BEA931900F3C013 /* Views */,
-				3A300E242BEA930E00F3C013 /* Scenes */,
 				3A300E162BEA921A00F3C013 /* MyDaylistApp.swift */,
 				3A300E1A2BEA921B00F3C013 /* Assets.xcassets */,
 				3A300E1C2BEA921B00F3C013 /* Preview Content */,
-				3A4598912C1790A000EECEA3 /* DaylistTabView.swift */,
+				3A6F1C762C1CAEDE0018A33C /* NOTES.md */,
 			);
 			path = MyDaylist;
 			sourceTree = "<group>";
@@ -86,16 +86,10 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3A300E242BEA930E00F3C013 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
 		3A300E252BEA931900F3C013 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A4598912C1790A000EECEA3 /* DaylistTabView.swift */,
 				3A300E182BEA921A00F3C013 /* ContentView.swift */,
 				3A300E2C2BEA942500F3C013 /* EventEntryView.swift */,
 				3A300E2E2BEA947A00F3C013 /* EventEntryListItem.swift */,
