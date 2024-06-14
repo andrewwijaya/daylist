@@ -35,7 +35,7 @@
 		3A300E322BEA94BD00F3C013 /* SettingsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
 		3A300E342BEA94D500F3C013 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		3A4598912C1790A000EECEA3 /* DaylistTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylistTabView.swift; sourceTree = "<group>"; };
-		3A6F1C762C1CAEDE0018A33C /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTES.md; sourceTree = "<group>"; };
+		3A6F1C762C1CAEDE0018A33C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 				3A300E162BEA921A00F3C013 /* MyDaylistApp.swift */,
 				3A300E1A2BEA921B00F3C013 /* Assets.xcassets */,
 				3A300E1C2BEA921B00F3C013 /* Preview Content */,
-				3A6F1C762C1CAEDE0018A33C /* NOTES.md */,
+				3A6F1C762C1CAEDE0018A33C /* README.md */,
 			);
 			path = MyDaylist;
 			sourceTree = "<group>";
