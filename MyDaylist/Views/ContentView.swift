@@ -30,7 +30,7 @@ struct ContentView: View {
                                     }
                             }
                             .listStyle(.plain)
-                            .listRowBackground(Color(.brandSecondary))
+                            .listRowBackground(Color(hex: event.colorHex))
                         }
                         .onDelete(perform: { indexSet in
                             for index in indexSet {
@@ -55,7 +55,7 @@ struct ContentView: View {
                 }
             }
         }
-        .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheet() }
+        .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView() }
         .sheet(item: $eventToEdit) { event in
             UpdateEventSheet(event: event)
         }
@@ -85,37 +85,6 @@ struct ContentView: View {
         .modelContainer(container)
 }
 
-struct AddEventSheet: View {
-    @Environment(\.modelContext) var context
-    @Environment(\.dismiss) private var dismiss
-    
-    @State private var eventTitle: String = ""
-    @State private var eventDate: Date = .now
-    
-    var body: some View {
-        NavigationStack {
-            Form {
-                TextField("Event Name", text: $eventTitle)
-                DatePicker("Event Date", selection: $eventDate)
-            }
-            .navigationTitle("New Event")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarLeading) {
-                    Button("Cancel") { dismiss() }
-                }
-                                 
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button("Save") {
-                        let event = Event(eventDate: eventDate, eventTitle: eventTitle)
-                        context.insert(event)
-                        dismiss()
-                    }
-                }
-            }
-        }
-    }
-}
 
 struct UpdateEventSheet: View {
     @Environment(\.dismiss) private var dismiss

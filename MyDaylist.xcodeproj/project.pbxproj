@@ -19,6 +19,8 @@
 		3A300E332BEA94BD00F3C013 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A300E322BEA94BD00F3C013 /* SettingsDetailView.swift */; };
 		3A300E352BEA94D500F3C013 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A300E342BEA94D500F3C013 /* DateView.swift */; };
 		3A4598922C1790A000EECEA3 /* DaylistTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4598912C1790A000EECEA3 /* DaylistTabView.swift */; };
+		3A89EB282C3365A700176B75 /* AddEventSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89EB272C3365A700176B75 /* AddEventSheetView.swift */; };
+		3A89EB2B2C3367A500176B75 /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 3A89EB2A2C3367A500176B75 /* SymbolPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,7 @@
 		3A300E342BEA94D500F3C013 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		3A4598912C1790A000EECEA3 /* DaylistTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylistTabView.swift; sourceTree = "<group>"; };
 		3A6F1C762C1CAEDE0018A33C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3A89EB272C3365A700176B75 /* AddEventSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A89EB2B2C3367A500176B75 /* SymbolPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +100,7 @@
 				3A300E302BEA94A000F3C013 /* SettingsView.swift */,
 				3A300E322BEA94BD00F3C013 /* SettingsDetailView.swift */,
 				3A300E342BEA94D500F3C013 /* DateView.swift */,
+				3A89EB272C3365A700176B75 /* AddEventSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,6 +130,9 @@
 			dependencies = (
 			);
 			name = MyDaylist;
+			packageProductDependencies = (
+				3A89EB2A2C3367A500176B75 /* SymbolPicker */,
+			);
 			productName = MyDaylist;
 			productReference = 3A300E132BEA921A00F3C013 /* MyDaylist.app */;
 			productType = "com.apple.product-type.application";
@@ -153,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 3A300E0A2BEA921A00F3C013;
+			packageReferences = (
+				3A89EB292C3367A500176B75 /* XCRemoteSwiftPackageReference "SymbolPicker" */,
+			);
 			productRefGroup = 3A300E142BEA921A00F3C013 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -182,6 +193,7 @@
 				3A300E312BEA94A000F3C013 /* SettingsView.swift in Sources */,
 				3A4598922C1790A000EECEA3 /* DaylistTabView.swift in Sources */,
 				3A300E192BEA921A00F3C013 /* ContentView.swift in Sources */,
+				3A89EB282C3365A700176B75 /* AddEventSheetView.swift in Sources */,
 				3A300E332BEA94BD00F3C013 /* SettingsDetailView.swift in Sources */,
 				3A300E292BEA93BE00F3C013 /* EventList.swift in Sources */,
 				3A300E2F2BEA947A00F3C013 /* EventEntryListItem.swift in Sources */,
@@ -394,6 +406,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A89EB292C3367A500176B75 /* XCRemoteSwiftPackageReference "SymbolPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xnth97/SymbolPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A89EB2A2C3367A500176B75 /* SymbolPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A89EB292C3367A500176B75 /* XCRemoteSwiftPackageReference "SymbolPicker" */;
+			productName = SymbolPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A300E0B2BEA921A00F3C013 /* Project object */;
 }
