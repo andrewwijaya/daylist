@@ -32,7 +32,7 @@ struct DaylistTabView: View {
     let container = try! ModelContainer(for: Event.self, configurations: config)
 
     for i in 1..<10 {
-        let event = Event(eventDate: Date(), eventTitle: "Example Event \(i)")
+        let event = Event.sampleEvent()
         container.mainContext.insert(event)
     }
     return DaylistTabView()

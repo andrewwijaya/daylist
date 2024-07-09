@@ -21,6 +21,8 @@
 		3A4598922C1790A000EECEA3 /* DaylistTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4598912C1790A000EECEA3 /* DaylistTabView.swift */; };
 		3A89EB282C3365A700176B75 /* AddEventSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89EB272C3365A700176B75 /* AddEventSheetView.swift */; };
 		3A89EB2B2C3367A500176B75 /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 3A89EB2A2C3367A500176B75 /* SymbolPicker */; };
+		3A8E645E2C3DB57400331156 /* UpdateEventSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8E645D2C3DB57400331156 /* UpdateEventSheetView.swift */; };
+		3A8E64622C3DBAA800331156 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8E64612C3DBAA800331156 /* ColorExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		3A4598912C1790A000EECEA3 /* DaylistTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylistTabView.swift; sourceTree = "<group>"; };
 		3A6F1C762C1CAEDE0018A33C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3A89EB272C3365A700176B75 /* AddEventSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventSheetView.swift; sourceTree = "<group>"; };
+		3A8E645D2C3DB57400331156 /* UpdateEventSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEventSheetView.swift; sourceTree = "<group>"; };
+		3A8E64612C3DBAA800331156 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 		3A300E152BEA921A00F3C013 /* MyDaylist */ = {
 			isa = PBXGroup;
 			children = (
+				3A8E64602C3DBA9600331156 /* Extensions */,
 				3A300E272BEA933400F3C013 /* Models */,
 				3A300E252BEA931900F3C013 /* Views */,
 				3A300E162BEA921A00F3C013 /* MyDaylistApp.swift */,
@@ -95,12 +100,11 @@
 			children = (
 				3A4598912C1790A000EECEA3 /* DaylistTabView.swift */,
 				3A300E182BEA921A00F3C013 /* ContentView.swift */,
-				3A300E2C2BEA942500F3C013 /* EventEntryView.swift */,
 				3A300E2E2BEA947A00F3C013 /* EventEntryListItem.swift */,
-				3A300E302BEA94A000F3C013 /* SettingsView.swift */,
-				3A300E322BEA94BD00F3C013 /* SettingsDetailView.swift */,
+				3A300E2C2BEA942500F3C013 /* EventEntryView.swift */,
 				3A300E342BEA94D500F3C013 /* DateView.swift */,
-				3A89EB272C3365A700176B75 /* AddEventSheetView.swift */,
+				3A8E645F2C3DB82100331156 /* UserActionViews */,
+				3A8E645C2C3DB52C00331156 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +116,32 @@
 				3A300E2A2BEA93EE00F3C013 /* Event.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3A8E645C2C3DB52C00331156 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3A300E302BEA94A000F3C013 /* SettingsView.swift */,
+				3A300E322BEA94BD00F3C013 /* SettingsDetailView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3A8E645F2C3DB82100331156 /* UserActionViews */ = {
+			isa = PBXGroup;
+			children = (
+				3A89EB272C3365A700176B75 /* AddEventSheetView.swift */,
+				3A8E645D2C3DB57400331156 /* UpdateEventSheetView.swift */,
+			);
+			path = UserActionViews;
+			sourceTree = "<group>";
+		};
+		3A8E64602C3DBA9600331156 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3A8E64612C3DBAA800331156 /* ColorExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A300E312BEA94A000F3C013 /* SettingsView.swift in Sources */,
+				3A8E64622C3DBAA800331156 /* ColorExtensions.swift in Sources */,
 				3A4598922C1790A000EECEA3 /* DaylistTabView.swift in Sources */,
 				3A300E192BEA921A00F3C013 /* ContentView.swift in Sources */,
 				3A89EB282C3365A700176B75 /* AddEventSheetView.swift in Sources */,
@@ -200,6 +231,7 @@
 				3A300E2D2BEA942500F3C013 /* EventEntryView.swift in Sources */,
 				3A300E352BEA94D500F3C013 /* DateView.swift in Sources */,
 				3A300E172BEA921A00F3C013 /* MyDaylistApp.swift in Sources */,
+				3A8E645E2C3DB57400331156 /* UpdateEventSheetView.swift in Sources */,
 				3A300E2B2BEA93EE00F3C013 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

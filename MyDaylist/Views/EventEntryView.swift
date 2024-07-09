@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct EventEntryView: View {
     let eventEntry: Event
@@ -19,4 +20,10 @@ struct EventEntryView: View {
         .padding()
         .navigationTitle(eventEntry.eventTitle)
     }
+}
+
+#Preview {
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Event.self, configurations: config)
+    return EventEntryView(eventEntry: Event.sampleEvent()).modelContainer(container)
 }

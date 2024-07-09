@@ -16,4 +16,8 @@ class Event: Identifiable, Hashable {
         self.iconName = iconName
         self.colorHex = colorHex
     }
+    
+    static func sampleEvent() -> Event {
+        Event(eventDate: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, eventTitle: "Example Event")
+    }
 }

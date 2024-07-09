@@ -57,7 +57,7 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView() }
         .sheet(item: $eventToEdit) { event in
-            UpdateEventSheet(event: event)
+            UpdateEventSheetView(event: event)
         }
         // TODO: what's going on with this toolbar? It is not visible.
         .toolbar {
@@ -84,26 +84,3 @@ struct ContentView: View {
     return ContentView(events: events, isFutureList: true)
         .modelContainer(container)
 }
-
-
-struct UpdateEventSheet: View {
-    @Environment(\.dismiss) private var dismiss
-    @Bindable var event: Event
-    
-    var body: some View {
-        NavigationStack {
-            Form {
-                TextField("Event Name", text: $event.eventTitle)
-                DatePicker("Date", selection: $event.eventDate)
-            }
-            .navigationTitle("Update Event")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarLeading) {
-                    Button("Done") { dismiss() }
-                }
-            }
-        }
-    }
-}
-

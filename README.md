@@ -15,8 +15,6 @@ Functionality to do list:
 - [x] Ability to add icons
 - [ ] Ability to change icons
 - [ ] Add support of emoji icons
-- [ ] Ability to add icon color
-- [ ] Ability to change the color of the icon
 - [x] Ability to add event background color
 - [ ] Ability to change event background color
 - [x] Convert wording of past events to i.e. "2 days ago"
@@ -30,6 +28,10 @@ Functionality to do list:
 - [ ] Share countdowns
 - [ ] Task series - sub goals etc
 - [ ] Done/Not done markers (check marks / green vs red)
+- [ ] Create custom image picker - remove dependencies
+- [ ] Add a settings tab
+    - [ ] Dark mode toggle
+- [ ] Configure notifications on events (push/alarm/alert)
 
 More complex functionalities:
 
