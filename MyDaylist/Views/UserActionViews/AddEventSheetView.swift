@@ -15,6 +15,7 @@ struct AddEventSheetView: View {
     @State private var eventTitle: String = ""
     @State private var eventDate: Date = .now
     @State private var eventColor: Color = Color.blue
+    @State private var eventNotes: String = ""
     @State private var eventIconName: String = "star"
     @State private var isSymbolPickerShown: Bool = false
     @State private var iconName = "pencil"
@@ -35,6 +36,9 @@ struct AddEventSheetView: View {
                 }.sheet(isPresented: $isSymbolPickerShown) {
                     SymbolPicker(symbol: $iconName)
                 }
+                Text("Event Notes:")
+                    .listRowSeparator(.hidden)
+                TextEditor(text: $eventNotes)
             }
             .navigationTitle("New Event")
             .navigationBarTitleDisplayMode(.large)
@@ -45,7 +49,7 @@ struct AddEventSheetView: View {
                                  
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button("Save") {
-                        let event = Event(eventDate: eventDate, eventTitle: eventTitle, iconName: iconName, colorHex: eventColor.toHex() ?? "#346beb")
+                        let event = Event(eventDate: eventDate, eventTitle: eventTitle, iconName: iconName, colorHex: eventColor.toHex() ?? "#346beb", eventNotes: self.eventNotes)
                         context.insert(event)
                         dismiss()
                     }

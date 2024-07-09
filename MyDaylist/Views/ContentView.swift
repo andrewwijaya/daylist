@@ -8,7 +8,6 @@ struct ContentView: View {
     
     @Environment(\.modelContext) var context
     @State private var isShowingAddEventSheet = false
-    @State private var eventToEdit: Event?
     
     init(events: [Event], isFutureList: Bool) {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
@@ -25,9 +24,6 @@ struct ContentView: View {
                         ForEach(events) { event in
                             NavigationLink(value: event) {
                                 EventEntryListItem(eventEntry: event, toGoText: isFutureList ? "days to go" : "days ago")
-                                    .onTapGesture {
-                                        eventToEdit = event
-                                    }
                             }
                             .listStyle(.plain)
                             .listRowBackground(Color(hex: event.colorHex))
@@ -39,7 +35,7 @@ struct ContentView: View {
                         })
                     }
                     .navigationDestination(for: Event.self) { entry in
-                        EventEntryView(eventEntry: entry)
+                        EventEntryDetailView(eventEntry: entry)
                     }
                     .navigationTitle("Daylist")
                     .toolbar {
@@ -56,9 +52,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView() }
-        .sheet(item: $eventToEdit) { event in
-            UpdateEventSheetView(event: event)
-        }
+
         // TODO: what's going on with this toolbar? It is not visible.
         .toolbar {
             if !events.isEmpty {

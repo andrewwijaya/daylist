@@ -31,7 +31,9 @@ Functionality to do list:
 - [ ] Create custom image picker - remove dependencies
 - [ ] Add a settings tab
     - [ ] Dark mode toggle
+    - [ ] Change the colors / theme of the app
 - [ ] Configure notifications on events (push/alarm/alert)
+- [x] Ability to add notes to events
 
 More complex functionalities:
 
