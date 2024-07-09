@@ -43,7 +43,7 @@ More complex functionalities:
 Bug list
 
 - [ ] Seems like there is a delay when creating a new event when we want to start typing
-- [ ] Fix alignment of event items
+- [x] Fix alignment of event items
 
 Dependencies
 

@@ -7,7 +7,12 @@ struct EventEntryListItem: View {
     
     var body: some View {
         HStack() {
-            Image(systemName: eventEntry.iconName)
+            Circle()
+                .foregroundStyle(.black.opacity(0.15))
+                .frame(width: 40, height: 40)
+                .overlay {
+                    Image(systemName: eventEntry.iconName)
+                }
             VStack(alignment: .leading) {
                 Text("\(eventEntry.eventTitle)")
                     .lineLimit(1)
@@ -25,7 +30,8 @@ struct EventEntryListItem: View {
                     .font(.subheadline)
             }
         }
-        .frame(width: 330)
+        // TODO: rather hacky, I can't tell where the paddinga the beginning of each list item comes from?
+        .padding(.leading, -8)
     }
     
     func daysBetween(_ endDate: Date) -> Int {
