@@ -41,6 +41,7 @@ More complex functionalities:
 - [ ] User should have some ability to change the visuals i.e. resize the Event cell in the List view
 - [ ] Share countdowns with friends
 - [ ] Create sub-countdowns
+- [ ] Integrate google maps and allow users to search and select a location
 
 Bug list
 
