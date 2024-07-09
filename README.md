@@ -2,6 +2,8 @@
 
 Daylist is an event countdown ios application.
 
+Core functionality:
+
 - [x] Ability to add/delete/update new events
 - [x] Event objects hold a title and date
 - [x] Events are shown in two lists, current, and past events
@@ -24,6 +26,10 @@ Functionality to do list:
 - [ ] Support for Event Series - which is a way to categorise events
 - [ ] Event titles that are longer than the width of the Event Cell should have a ticker style animation
 - [ ] Ability to copy events
+- [ ] Subcountdowns
+- [ ] Share countdowns
+- [ ] Task series - sub goals etc
+- [ ] Done/Not done markers (check marks / green vs red)
 
 More complex functionalities:
 
@@ -36,3 +42,11 @@ Bug list
 
 - [ ] Seems like there is a delay when creating a new event when we want to start typing
 - [ ] Fix alignment of event items
+
+Dependencies
+
+- https://github.com/xnth97/SymbolPicker?ref=iosexample.com
+
+References
+
+- https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app
