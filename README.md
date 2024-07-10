@@ -42,6 +42,7 @@ More complex functionalities:
 - [ ] Share countdowns with friends
 - [ ] Create sub-countdowns
 - [ ] Integrate google maps and allow users to search and select a location
+- [ ] Export import csv
 
 Bug list
 
