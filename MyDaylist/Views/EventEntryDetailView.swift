@@ -22,6 +22,7 @@ struct EventEntryDetailView: View {
                 .overlay {
                     Image(systemName: eventEntry.iconName).resizable().frame(width: 50, height: 50)
                 }
+                .padding(.top, 50)
             Text(eventEntry.eventTitle)
                 .font(.title)
                 .padding(.top, 25)
@@ -56,7 +57,6 @@ struct EventEntryDetailView: View {
         .frame(width: 400, height: 400)
         .background(Color(hex: eventEntry.colorHex))
         .clipShape(.rect(cornerRadius: 30))
-        .navigationTitle(eventEntry.eventTitle)
     }
 }
 

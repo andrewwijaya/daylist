@@ -16,50 +16,40 @@ struct ContentView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color(.brandPrimary).ignoresSafeArea(.all)
-                VStack {
-                    List() {
-                        ForEach(events) { event in
-                            NavigationLink(value: event) {
-                                EventEntryListItem(eventEntry: event, toGoText: isFutureList ? "days to go" : "days ago")
-                            }
-                            .listStyle(.plain)
-                            .listRowBackground(Color(hex: event.colorHex))
+        ZStack {
+            Color(.brandPrimary).ignoresSafeArea(.all)
+            VStack {
+                List() {
+                    ForEach(events) { event in
+                        NavigationLink(value: event) {
+                            EventEntryListItem(eventEntry: event, toGoText: isFutureList ? "days to go" : "days ago")
                         }
-                        .onDelete(perform: { indexSet in
-                            for index in indexSet {
-                                context.delete(events[index])
-                            }
-                        })
+                        .listStyle(.plain)
+                        .listRowBackground(Color(hex: event.colorHex))
                     }
-                    .navigationDestination(for: Event.self) { entry in
-                        EventEntryDetailView(eventEntry: entry)
-                    }
-                    .navigationTitle("Daylist")
-                    .toolbar {
-                        ToolbarItem {
-                            Button {
-                                isShowingAddEventSheet = true
-                            } label: {
-                                Image(systemName: "plus")
-                            }
+                    .onDelete(perform: { indexSet in
+                        for index in indexSet {
+                            context.delete(events[index])
                         }
-                    }
-                    .scrollContentBackground(.hidden)
+                    })
                 }
+                .navigationTitle("Daylist")
+                .toolbar {
+                    ToolbarItem {
+                        Button {
+                            isShowingAddEventSheet = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                    }
+                }
+                .scrollContentBackground(.hidden)
             }
         }
         .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView() }
-
-        // TODO: what's going on with this toolbar? It is not visible.
-        .toolbar {
-            if !events.isEmpty {
-                Button("Add Event", systemImage: "plus") {
-                    isShowingAddEventSheet = true
-                }
-            }
+        // TODO: there is a warning here "Do not put a navigation destination modifier inside a "lazy” container"
+        .navigationDestination(for: Event.self) { entry in
+            EventEntryDetailView(eventEntry: entry)
         }
     }
 }
@@ -74,7 +64,7 @@ struct ContentView: View {
         container.mainContext.insert(event)
         events.append(event)
     }
-
+    
     return ContentView(events: events, isFutureList: true)
         .modelContainer(container)
 }
