@@ -7,7 +7,6 @@ struct ContentView: View {
     var isFutureList: Bool
     
     @Environment(\.modelContext) var context
-    @State private var isShowingAddEventSheet = false
     
     init(events: [Event], isFutureList: Bool) {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
@@ -18,7 +17,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color(.brandPrimary).ignoresSafeArea(.all)
-            VStack {
+            NavigationStack {
                 List() {
                     ForEach(events) { event in
                         NavigationLink(value: event) {
@@ -33,23 +32,13 @@ struct ContentView: View {
                         }
                     })
                 }
-                .navigationTitle("Daylist")
-                .toolbar {
-                    ToolbarItem {
-                        Button {
-                            isShowingAddEventSheet = true
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                    }
-                }
+                .background(Color(.brandPrimary))
                 .scrollContentBackground(.hidden)
+                // TODO: there is a warning here "Do not put a navigation destination modifier inside a "lazy” container"
+                .navigationDestination(for: Event.self) { entry in
+                    EventEntryDetailView(eventEntry: entry)
+                }
             }
-        }
-        .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView() }
-        // TODO: there is a warning here "Do not put a navigation destination modifier inside a "lazy” container"
-        .navigationDestination(for: Event.self) { entry in
-            EventEntryDetailView(eventEntry: entry)
         }
     }
 }

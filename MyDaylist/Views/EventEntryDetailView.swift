@@ -50,13 +50,16 @@ struct EventEntryDetailView: View {
                 Text("Edit Event")
             }
             .buttonStyle(.bordered)
+            .background(.primary.opacity(0.2))
+            .clipShape(.capsule)
             .sheet(isPresented: $isShowingUpdateView) {
                 UpdateEventSheetView(event: eventEntry)
             }
         }
-        .frame(width: 400, height: 400)
+        .frame(width: 400, height: 500)
         .background(Color(hex: eventEntry.colorHex))
         .clipShape(.rect(cornerRadius: 30))
+        .padding(.bottom, 100)
     }
 }
 

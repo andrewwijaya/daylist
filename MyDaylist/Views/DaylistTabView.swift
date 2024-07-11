@@ -12,7 +12,8 @@ struct DaylistTabView: View {
     
     @Environment(\.modelContext) var context
     @Query(sort: \Event.eventDate) var events: [Event] = []
-        
+    @State private var isShowingAddEventSheet = false
+
     var body: some View {
         NavigationStack {
             TabView {
@@ -23,6 +24,16 @@ struct DaylistTabView: View {
                 // Reverse the pastEvents variable because it is sorted based on the date not on days remaining.
                 ContentView(events: pastEvents.reversed(), isFutureList: false)
                     .tabItem { Label("Past Events", systemImage: "calendar.badge.checkmark") }
+            }
+            .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView() }
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        isShowingAddEventSheet = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
             }
         }
     }
