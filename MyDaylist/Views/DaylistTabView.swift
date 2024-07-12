@@ -35,6 +35,7 @@ struct DaylistTabView: View {
                     }
                 }
             }
+            .navigationTitle("MyDaylist")
         }
     }
 }

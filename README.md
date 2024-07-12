@@ -19,7 +19,7 @@ Functionality to do list:
 - [ ] Ability to change event background color
 - [x] Convert wording of past events to i.e. "2 days ago"
 - [ ] Push notification support, and ability to customise when the alert appears
-- [ ] Countdown time should tick down in real time
+- [x] Countdown time should tick down in real time
 - [ ] Support repeated events
 - [ ] Support for Event Series - which is a way to categorise events
 - [ ] Event titles that are longer than the width of the Event Cell should have a ticker style animation
