@@ -22,4 +22,8 @@ class Event: Identifiable, Hashable {
     static func sampleEvent() -> Event {
         Event(eventDate: Calendar.current.date(byAdding: .day, value: Int.random(in: -5...5), to: Date())!, eventTitle: "Example Event", colorHex: "#346beb", eventNotes: "These are sample notes")
     }
+    
+    func copy() -> Event {
+        return Event(eventDate: self.eventDate, eventTitle: self.eventTitle, iconName: self.iconName, colorHex: self.colorHex, eventNotes: self.eventNotes)
+    }
 }

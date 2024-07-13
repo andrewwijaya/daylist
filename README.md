@@ -23,7 +23,7 @@ Functionality to do list:
 - [ ] Support repeated events
 - [ ] Support for Event Series - which is a way to categorise events
 - [ ] Event titles that are longer than the width of the Event Cell should have a ticker style animation
-- [ ] Ability to copy events
+- [x] Ability to copy events
 - [ ] Subcountdowns
 - [ ] Share countdowns
 - [ ] Task series - sub goals etc

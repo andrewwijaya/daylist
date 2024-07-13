@@ -23,12 +23,20 @@ struct ContentView: View {
                     }
                     .listStyle(.plain)
                     .listRowBackground(Color(hex: event.colorHex))
-                }
-                .onDelete(perform: { indexSet in
-                    for index in indexSet {
-                        context.delete(events[index])
+                    .swipeActions() {
+                        Button(role: .destructive) {
+                            context.delete(event)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                        Button() {
+                            context.insert(event.copy())
+                        } label: {
+                            Label("Copy", systemImage: "doc.on.doc")
+                        }
+                        .tint(.yellow)
                     }
-                })
+                }
             }
             .background(Color(.brandPrimary))
             .scrollContentBackground(.hidden)
