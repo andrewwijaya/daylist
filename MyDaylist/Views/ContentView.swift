@@ -45,7 +45,7 @@ struct ContentView: View {
     let container = try! ModelContainer(for: Event.self, configurations: config)
     var events: [Event] = []
     
-    for i in 1..<10 {
+    for _ in 1..<10 {
         let event = Event.sampleEvent()
         container.mainContext.insert(event)
         events.append(event)
