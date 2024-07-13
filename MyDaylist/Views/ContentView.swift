@@ -15,29 +15,26 @@ struct ContentView: View {
     }
     
     var body: some View {
-        ZStack {
-            Color(.brandPrimary).ignoresSafeArea(.all)
-            NavigationStack {
-                List() {
-                    ForEach(events) { event in
-                        NavigationLink(value: event) {
-                            EventEntryListItem(eventEntry: event, toGoText: isFutureList ? "days to go" : "days ago")
-                        }
-                        .listStyle(.plain)
-                        .listRowBackground(Color(hex: event.colorHex))
+        NavigationStack {
+            List() {
+                ForEach(events) { event in
+                    NavigationLink(value: event) {
+                        EventEntryListItem(eventEntry: event, toGoText: isFutureList ? "days to go" : "days ago")
                     }
-                    .onDelete(perform: { indexSet in
-                        for index in indexSet {
-                            context.delete(events[index])
-                        }
-                    })
+                    .listStyle(.plain)
+                    .listRowBackground(Color(hex: event.colorHex))
                 }
-                .background(Color(.brandPrimary))
-                .scrollContentBackground(.hidden)
-                // TODO: there is a warning here "Do not put a navigation destination modifier inside a "lazy” container"
-                .navigationDestination(for: Event.self) { entry in
-                    EventEntryDetailView(eventEntry: entry)
-                }
+                .onDelete(perform: { indexSet in
+                    for index in indexSet {
+                        context.delete(events[index])
+                    }
+                })
+            }
+            .background(Color(.brandPrimary))
+            .scrollContentBackground(.hidden)
+            // TODO: there is a warning here "Do not put a navigation destination modifier inside a "lazy” container"
+            .navigationDestination(for: Event.self) { entry in
+                EventEntryDetailView(eventEntry: entry)
             }
         }
     }
@@ -49,7 +46,7 @@ struct ContentView: View {
     var events: [Event] = []
     
     for i in 1..<10 {
-        let event = Event(eventDate: Date(), eventTitle: "Example Event \(i)")
+        let event = Event.sampleEvent()
         container.mainContext.insert(event)
         events.append(event)
     }

@@ -16,26 +16,33 @@ struct DaylistTabView: View {
 
     var body: some View {
         NavigationStack {
-            TabView {
-                var futureEvents = events.filter { $0.eventDate >= Date() }
-                ContentView(events: futureEvents, isFutureList: true)
-                    .tabItem { Label("Events", systemImage: "calendar") }
-                var pastEvents = events.filter { $0.eventDate < Date() }
-                // Reverse the pastEvents variable because it is sorted based on the date not on days remaining.
-                ContentView(events: pastEvents.reversed(), isFutureList: false)
-                    .tabItem { Label("Past Events", systemImage: "calendar.badge.checkmark") }
-            }
-            .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView() }
-            .toolbar {
-                ToolbarItem {
-                    Button {
-                        isShowingAddEventSheet = true
-                    } label: {
-                        Image(systemName: "plus")
+            VStack {
+                Text("MyDaylist")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundStyle(LinearGradient(colors: [.green, .brandPrimaryPair], startPoint: .leading, endPoint: .trailing))
+                TabView {
+                    let futureEvents = events.filter { $0.eventDate >= Date() }
+                    ContentView(events: futureEvents, isFutureList: true)
+                        .tabItem { Label("Future Events", systemImage: "calendar") }
+                    let pastEvents = events.filter { $0.eventDate < Date() }
+                    // Reverse the pastEvents variable because it is sorted based on the date not on days remaining.
+                    ContentView(events: pastEvents.reversed(), isFutureList: false)
+                        .tabItem { Label("Past Events", systemImage: "calendar.badge.checkmark") }
+                }
+                .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView() }
+                .toolbar {
+                    ToolbarItem {
+                        Button {
+                            isShowingAddEventSheet = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
                     }
                 }
             }
-            .navigationTitle("MyDaylist")
+            .background(Color(.brandPrimary))
+            .scrollContentBackground(.hidden)
         }
     }
 }
@@ -44,7 +51,7 @@ struct DaylistTabView: View {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Event.self, configurations: config)
 
-    for i in 1..<10 {
+    for _ in 1..<10 {
         let event = Event.sampleEvent()
         container.mainContext.insert(event)
     }

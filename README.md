@@ -48,6 +48,8 @@ Bug list
 
 - [ ] Seems like there is a delay when creating a new event when we want to start typing
 - [x] Fix alignment of event items
+- [x] There is a padding issue in the past events content view sometimes
+- [ ] The default live countdown shows 0 before 1 second timer tick
 
 Dependencies
 

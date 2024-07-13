@@ -30,7 +30,7 @@ struct EventEntryListItem: View {
                     .font(.subheadline)
             }
         }
-        // TODO: rather hacky, I can't tell where the paddinga the beginning of each list item comes from?
+        // TODO: rather hacky, I can't tell where the padding at the beginning of each list item comes from?
         .padding(.leading, -8)
     }
     
