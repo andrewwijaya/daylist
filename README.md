@@ -34,6 +34,7 @@ Functionality to do list:
     - [ ] Change the colors / theme of the app
 - [ ] Configure notifications on events (push/alarm/alert)
 - [x] Ability to add notes to events
+- [ ] Add checkmark on events
 
 More complex functionalities:
 
@@ -43,6 +44,7 @@ More complex functionalities:
 - [ ] Create sub-countdowns
 - [ ] Integrate google maps and allow users to search and select a location
 - [ ] Export import csv
+- [ ] Learn how to migrate schemas for SwiftData in case the Event schema needs to change
 
 Bug list
 
