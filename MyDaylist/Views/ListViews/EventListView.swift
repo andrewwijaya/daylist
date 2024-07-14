@@ -58,7 +58,7 @@ struct EventListView: View {
             .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView(categories: categories) }
             .toolbar {
                 ToolbarItem {
-                    Button("New Event") {
+                    Button("New Thing") {
                         isShowingAddEventSheet = true
                     }
                     .buttonStyle(GrowingButton())                }

@@ -42,7 +42,7 @@ struct AddEventSheetView: View {
                     .listRowSeparator(.hidden)
                 TextEditor(text: $eventNotes)
             }
-            .navigationTitle("New Event")
+            .navigationTitle("New Thing")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {

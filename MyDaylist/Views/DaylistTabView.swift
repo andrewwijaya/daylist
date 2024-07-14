@@ -9,10 +9,11 @@ struct DaylistTabView: View {
 
     var body: some View {
         VStack {
-            Text("MyDaylist")
-                .padding(.top, 20)
+            Text("GottaThing")
+                .padding(.top, 40)
                 .font(.largeTitle)
                 .bold()
+                .italic()
                 .foregroundStyle(LinearGradient(colors: [.green, .brandPrimaryPair], startPoint: .leading, endPoint: .trailing))
             TabView {
                 let futureEvents = events.filter { $0.eventDate >= Date() }
