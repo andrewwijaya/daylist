@@ -1,10 +1,3 @@
-//
-//  UpdateEventSheetView.swift
-//  MyDaylist
-//
-//  Created by Andrew Wijaya on 09/07/2024.
-//
-
 import SwiftUI
 import SwiftData
 import SymbolPicker

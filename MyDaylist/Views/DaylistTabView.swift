@@ -1,10 +1,3 @@
-//
-//  DaylistTabView.swift
-//  MyDaylist
-//
-//  Created by Andrew Wijaya on 10/06/2024.
-//
-
 import SwiftUI
 import SwiftData
 

@@ -1,10 +1,3 @@
-//
-//  MyStyles.swift
-//  MyDaylist
-//
-//  Created by Andrew Wijaya on 14/07/2024.
-//
-
 import SwiftUI
 
 struct GrowingButton: ButtonStyle {
