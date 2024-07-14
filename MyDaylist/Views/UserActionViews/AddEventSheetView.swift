@@ -16,7 +16,6 @@ struct AddEventSheetView: View {
     @State private var eventDate: Date = .now
     @State private var eventColor: Color = Color.blue
     @State private var eventNotes: String = ""
-    @State private var eventIconName: String = "star"
     @State private var isSymbolPickerShown: Bool = false
     @State private var iconName = "pencil"
     

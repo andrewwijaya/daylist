@@ -44,10 +44,10 @@ struct EventEntryListItem: View {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Event.self, configurations: config)
 
-    for i in 1..<10 {
-        let event = Event(eventDate: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, eventTitle: "Example Event \(i)")
-        container.mainContext.insert(event)
-    }
+//    for i in 1..<10 {
+//        let event = Event(eventDate: Calendar.current.date(byAdding: .day, value: 2, to: Date())!, eventTitle: "Example Event \(i)")
+//        container.mainContext.insert(event)
+//    }
     return EventEntryListItem(eventEntry: Event.sampleEvent(), toGoText: "days ago")
         .modelContainer(container)
 }

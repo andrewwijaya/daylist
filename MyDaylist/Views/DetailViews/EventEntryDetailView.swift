@@ -81,7 +81,7 @@ struct EventEntryDetailView: View {
                 UpdateEventSheetView(event: eventEntry)
             }
         }
-        .frame(width: 400, height: 600)
+        .frame(width: 400, height: 550)
         .background(Color(hex: eventEntry.colorHex))
         .clipShape(.rect(cornerRadius: 30))
         .padding(.bottom, 100)

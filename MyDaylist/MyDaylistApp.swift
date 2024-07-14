@@ -14,6 +14,6 @@ struct MyDaylistApp: App {
         WindowGroup {
             DaylistTabView()
         }
-        .modelContainer(for: [Event.self])
+        .modelContainer(for: [Event.self, Category.self])
     }
 }

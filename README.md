@@ -35,6 +35,7 @@ Functionality to do list:
 - [ ] Configure notifications on events (push/alarm/alert)
 - [x] Ability to add notes to events
 - [ ] Add checkmark on events
+- [ ] Randomise sample event/category colours - better samples (wording, colour, category etc)
 
 More complex functionalities:
 
@@ -45,6 +46,7 @@ More complex functionalities:
 - [ ] Integrate google maps and allow users to search and select a location
 - [ ] Export import csv
 - [ ] Learn how to migrate schemas for SwiftData in case the Event schema needs to change
+- [ ] Widgets - next up in a category
 
 Bug list
 
@@ -52,6 +54,8 @@ Bug list
 - [x] Fix alignment of event items
 - [x] There is a padding issue in the past events content view sometimes
 - [ ] The default live countdown shows 0 before 1 second timer tick
+- [ ] Currently you can add a new event with no name
+- [ ] Update event and category colors not working
 
 Dependencies
 
