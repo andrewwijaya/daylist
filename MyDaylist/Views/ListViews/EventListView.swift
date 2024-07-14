@@ -2,18 +2,19 @@ import SwiftUI
 import SwiftData
 
 struct EventListView: View {
-    
-    var events: [Event]
-    var isFutureList: Bool
-    var categories: [Category]
 
-    @State private var isShowingAddEventSheet = false
-    
     @Environment(\.modelContext) var context
     
-    init(events: [Event], isFutureList: Bool, categories: [Category]) {
+    var isFutureList: Bool
+    var categories: [Category]
+    @State private var isShowingAddEventSheet = false
+    @State private var timer: Timer?
+    @State private var now = Date()
+    
+    @Query(sort: \Event.eventDate) var events: [Event]
+        
+    init(isFutureList: Bool, categories: [Category]) {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
-        self.events = events
         self.isFutureList = isFutureList
         self.categories = categories
     }
@@ -24,7 +25,9 @@ struct EventListView: View {
                 Color(.brandPrimary)
                     .ignoresSafeArea()
                 List() {
-                    ForEach(events) { event in
+                    let futureEvents = events.filter{ $0.eventDate >= now }
+                    let pastEvents = events.filter{ $0.eventDate < now }
+                    ForEach(isFutureList ? futureEvents : pastEvents) { event in
                         NavigationLink(value: event) {
                             EventEntryListItem(eventEntry: event, toGoText: isFutureList ? "days to go" : "days ago")
                         }
@@ -63,13 +66,35 @@ struct EventListView: View {
                     }
                     .buttonStyle(GrowingButton())                }
             }
+            .onAppear {
+                startTimer()
+            }
+            .onDisappear {
+                stopTimer()
+            }
         }
+    }
+    
+    private func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.now = Date()
+        }
+    }
+
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 }
 
 #Preview{
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Event.self, Category.self, configurations: config)
-    return EventListView(events: Samples.sampleEvents, isFutureList: true, categories: Samples.sampleCategories)
+    
+    for event in Samples.sampleEvents {
+        container.mainContext.insert(event)
+    }
+    
+    return EventListView(isFutureList: true, categories: Samples.sampleCategories)
         .modelContainer(container)
 }

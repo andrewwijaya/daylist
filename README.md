@@ -56,7 +56,7 @@ Bug list
 - [ ] The default live countdown shows 0 before 1 second timer tick
 - [ ] Currently you can add a new event with no name
 - [ ] Update event and category colors not working
-- [ ] Events do not automatically move to the past events as time progresses
+- [x] Events do not automatically move to the past events as time progresses
 
 Dependencies
 

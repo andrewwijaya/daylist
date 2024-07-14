@@ -4,9 +4,9 @@ import SwiftData
 struct DaylistTabView: View {
     
     @Environment(\.modelContext) var context
-    @Query(sort: \Event.eventDate) var events: [Event] = []
     @Query var categories: [Category] = []
-
+    @Query(sort: \Event.eventDate) var events: [Event] = []
+    
     var body: some View {
         VStack {
             Text("GottaThing")
@@ -16,19 +16,15 @@ struct DaylistTabView: View {
                 .italic()
                 .foregroundStyle(LinearGradient(colors: [.green, .brandPrimaryPair], startPoint: .leading, endPoint: .trailing))
             TabView {
-                let futureEvents = events.filter { $0.eventDate >= Date() }
-                EventListView(events: futureEvents, isFutureList: true, categories: categories)
+                EventListView(isFutureList: true, categories: categories)
                     .tabItem { Label("Future Events", systemImage: "calendar") }
-                let pastEvents = events.filter { $0.eventDate < Date() }
-                // Reverse the pastEvents variable because it is sorted based on the date not on days remaining.
-                EventListView(events: pastEvents.reversed(), isFutureList: false, categories: categories)
+                EventListView(isFutureList: false, categories: categories)
                     .tabItem { Label("Past Events", systemImage: "calendar.badge.checkmark") }
                 CategoryListView(categories: categories)
                     .tabItem { Label("Categories", systemImage: "rectangle.3.group") }
             }
         }
         .background(Color(.brandPrimary))
-//        .scrollContentBackground(.hidden)
     }
 }
 
