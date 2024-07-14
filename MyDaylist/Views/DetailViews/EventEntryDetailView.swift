@@ -33,6 +33,7 @@ struct EventEntryDetailView: View {
             Text(formattedEventDate)
                 .font(.title3)
                 .padding(.bottom, 10)
+            Text("Category: " + eventEntry.category)
             Text("Time left:")
                 .font(.headline)
             HStack {

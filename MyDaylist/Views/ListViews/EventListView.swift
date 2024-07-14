@@ -5,15 +5,17 @@ struct EventListView: View {
     
     var events: [Event]
     var isFutureList: Bool
-    
+    var categories: [Category]
+
     @State private var isShowingAddEventSheet = false
     
     @Environment(\.modelContext) var context
     
-    init(events: [Event], isFutureList: Bool) {
+    init(events: [Event], isFutureList: Bool, categories: [Category]) {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
         self.events = events
         self.isFutureList = isFutureList
+        self.categories = categories
     }
     
     var body: some View {
@@ -53,7 +55,7 @@ struct EventListView: View {
                     EventEntryDetailView(eventEntry: entry)
                 }
             }
-            .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView() }
+            .sheet(isPresented: $isShowingAddEventSheet) { AddEventSheetView(categories: categories) }
             .toolbar {
                 ToolbarItem {
                     Button("New Event") {
@@ -67,15 +69,7 @@ struct EventListView: View {
 
 #Preview{
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Event.self, configurations: config)
-    var events: [Event] = []
-    
-    for _ in 1..<10 {
-        let event = Event.sampleEvent()
-        container.mainContext.insert(event)
-        events.append(event)
-    }
-    
-    return EventListView(events: events, isFutureList: true)
+    let container = try! ModelContainer(for: Event.self, Category.self, configurations: config)
+    return EventListView(events: Samples.sampleEvents, isFutureList: true, categories: Samples.sampleCategories)
         .modelContainer(container)
 }

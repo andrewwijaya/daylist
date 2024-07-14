@@ -7,10 +7,13 @@
 
 import SwiftUI
 import SymbolPicker
+import SwiftData
 
 struct AddEventSheetView: View {
     @Environment(\.modelContext) var context
     @Environment(\.dismiss) private var dismiss
+    
+    var categories: [Category]
     
     @State private var eventTitle: String = ""
     @State private var eventDate: Date = .now
@@ -18,6 +21,7 @@ struct AddEventSheetView: View {
     @State private var eventNotes: String = ""
     @State private var isSymbolPickerShown: Bool = false
     @State private var iconName = "pencil"
+    @State private var selectedCategory = ""
     
     var body: some View {
         NavigationStack {
@@ -35,6 +39,12 @@ struct AddEventSheetView: View {
                 }.sheet(isPresented: $isSymbolPickerShown) {
                     SymbolPicker(symbol: $iconName)
                 }
+                Picker("Category", selection: $selectedCategory) {
+                    ForEach(categories) { category in
+                        Text(category.categoryName)
+                            .tag(category.categoryName)
+                    }
+                }
                 Text("Event Notes:")
                     .listRowSeparator(.hidden)
                 TextEditor(text: $eventNotes)
@@ -48,7 +58,7 @@ struct AddEventSheetView: View {
                                  
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button("Save") {
-                        let event = Event(eventDate: eventDate, eventTitle: eventTitle, iconName: iconName, colorHex: eventColor.toHex() ?? "#346beb", eventNotes: self.eventNotes)
+                        let event = Event(eventDate: eventDate, eventTitle: eventTitle, iconName: iconName, colorHex: eventColor.toHex() ?? "#346beb", eventNotes: self.eventNotes, category: selectedCategory)
                         context.insert(event)
                         dismiss()
                     }
@@ -86,5 +96,7 @@ extension Color {
 }
 
 #Preview {
-    AddEventSheetView()
-}
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Event.self, Category.self, configurations: config)
+    return AddEventSheetView(categories: Samples.sampleCategories)
+        .modelContainer(container)}

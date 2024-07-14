@@ -56,15 +56,7 @@ struct CategoryListView: View {
 
 #Preview{
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Category.self, configurations: config)
-    var categories: [Category] = []
-    
-    for _ in 1..<10 {
-        let category = Category.sampleCategory()
-        container.mainContext.insert(category)
-        categories.append(category)
-    }
-    
-    return CategoryListView(categories: categories)
+    let container = try! ModelContainer(for: Category.self, configurations: config)    
+    return CategoryListView(categories: Samples.sampleCategories)
         .modelContainer(container)
 }
