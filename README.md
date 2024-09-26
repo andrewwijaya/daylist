@@ -1,6 +1,6 @@
 #  GottaThing
 
-GottaThing is an event countdown ios application. It is a toy project for me to learn Swift IOS development.
+GottaThing is an event countdown ios application. It is a toy project for me to learn Swift IOS development and is in very early stages of development.
 
 Users of this application can add events, and specify a date and time in the future when it will occur. The app then holds all of these events and displays it in a colorful linear list. Personally this application helps me keep myself organised, and helps me keep track of any important and exciting things happening in the future. For example if you have a homework due date, interview, basketball practice, birthday party, pay day, all of these can be organised, categorised and kept track of in a fun way using this app.
 
