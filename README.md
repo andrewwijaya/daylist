@@ -1,4 +1,4 @@
-#  GottaThing
+#  GottaThing - an IOS Event Countdown Application
 
 GottaThing is an event countdown ios application. It is a toy project for me to learn Swift IOS development and is in very early stages of development.
 
